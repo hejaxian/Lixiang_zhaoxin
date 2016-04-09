@@ -65,7 +65,8 @@ def login():
 def logout():
     logout_user()
     return redirect("/")
-    
+
+@login_required    
 @app.route('/manage')
 def manage():    
     g.baoming = Join.query.all()
