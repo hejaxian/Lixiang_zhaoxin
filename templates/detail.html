@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}管理面板{% endblock %}
+
+{% block page_content %}
+<div class="jumbotron" style="background-color: #CC99CC;">
+  <div class="row">
+	<div class="col-sm-4 col-xs-12">
+		<p>姓名:{{g.detail.name}}</p>
+		<p>性别:{{g.detail.sex}}</p>
+		<p>班级:{{g.detail.banji}}</p>
+		<p>学校:{{g.detail.school}}</p>
+		<p>硬盘容量:{{g.detail.disk}}</p>
+		<p>电子邮件:{{g.detail.email}}</p>
+		<p>手机号码:{{g.detail.phone}}</p>
+	</div>
+	
+	<div class="col-sm-4 col-xs-12">
+		<p>荔香站用户名:{{g.detail.lx_username}}</p>
+		<p>应聘板块:{{g.detail.block}}</p>
+		<p>备选板块:{{g.detail.block_backup}}</p>
+		<p>资源来源:{{g.detail.source}}</p>
+		<p>在线时间:{{g.detail.uptime}}</p>
+	</div>
+	
+	<div class="col-sm-4 col-xs-12">
+		<p>照片:</p>
+		<div class="box">
+			<img src="{{ url_for('photo',filename = g.detail.photo ) }}" width="100%">
+		</div>
+	</div>
+  </div>
+</div>
+{% endblock %}

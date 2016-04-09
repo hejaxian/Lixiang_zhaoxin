@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}报名{% endblock %}
+
+{% block page_content %}
+<div class="col-sm-2 hidden-xs">
+</div>
+<div class="col-sm-8 col-xs-12">
+    <div class="jumbotron" style="background-color: #CC99CC;">
+		<form method="POST" enctype="multipart/form-data">
+			{{ form.hidden_tag() }}
+			<div class="form-group col-sm-6 col-xs-12">
+				{{ form.name.label(class="control-label")}}:{{form.name(class="form-control")}}
+				{% for error in form.name.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+				{{ form.sex.label(class="control-label")}}:{{form.sex(class="form-control")}}
+				{% for error in form.sex.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+				{{ form.banji.label(class="control-label")}}:{{form.banji(class="form-control")}}
+				{% for error in form.banji.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+				{{ form.school.label(class="control-label")}}:{{form.school(class="form-control")}}
+				{% for error in form.school.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+				{{ form.disk.label(class="control-label")}}:{{form.disk(class="form-control")}}
+				{% for error in form.disk.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+				{{ form.email.label(class="control-label")}}:{{form.email(class="form-control")}}
+				{% for error in form.email.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+				{{ form.phone.label(class="control-label")}}:{{form.phone(class="form-control")}}
+				{% for error in form.phone.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			</div>
+			<div class="form-group col-sm-6 col-xs-12">
+			    {{ form.lixiang_username.label(class="control-label")}}:{{form.lixiang_username(class="form-control")}}
+			    {% for error in form.lixiang_username.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			    {{ form.block.label(class="control-label")}}:{{form.block(class="form-control")}}
+			    {% for error in form.block.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			    {{ form.block_backup.label(class="control-label")}}:{{form.block_backup(class="form-control")}}
+			    {% for error in form.block_backup.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			    {{ form.source.label(class="control-label")}}:{{form.source(class="form-control")}}
+			    {% for error in form.source.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			    {{ form.uptime.label(class="control-label")}}:{{form.uptime(class="form-control")}}
+			    {% for error in form.uptime.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			    {{ form.photo.label(class="control-label")}}:{{form.photo(class="form-control")}}
+			    {% for error in form.photo.errors %}
+					<br>
+                	<div class="alert alert-dismissible alert-danger">
+                	     <strong>{{ error }}</strong>
+               		</div>
+           		{% endfor %}
+			</div>
+			{{ form.submit(class="btn btn-large btn-block btn-info")}}
+		</form>
+		{% for message in get_flashed_messages() %}
+		<br>
+		<div class="alert alert-dismissible alert-success">
+		    <button type="button" class="close" data-dismiss="alert">×</button>
+  		    <strong>{{ message }}</strong>
+		</div>
+        {% endfor %}
+	</div>
+</div>
+<div class="col-sm-2 hidden-xs">
+</div>
+{% endblock %}

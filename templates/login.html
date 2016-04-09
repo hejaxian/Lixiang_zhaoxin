@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}登陆{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script>
+  $("[name='remember_me']").bootstrapSwitch({
+  		size: 'small',
+  		onColor: 'success'
+  });
+</script>
+{% endblock %}
+
+{% block page_content %}
+<div class="col-sm-3 hidden-xs">
+</div>
+<div class="col-sm-6 col-xs-12">
+	<div class="jumbotron" style="background-color: #CC99CC;">
+		<form method="POST">
+			{{ form.hidden_tag() }}
+			<div class="form-group">
+				{{ form.username.label(class="control-label")}}:{{form.username(class="form-control")}}
+				{{ form.password.label(class="control-label")}}:{{form.password(class="form-control")}}
+			</div>
+			<div class="form-group">
+			    <div class="switch switch-mini" data-on="warning">
+					{{ form.remember_me.label(class="control-label")}}:{{form.remember_me(class="form-control")}}
+				</div>
+			</div>
+			{{ form.submit(class="btn btn-large btn-block btn-success")}}
+		</form>
+		{% for message in get_flashed_messages() %}
+		<br>
+		<div class="alert alert-dismissible alert-danger">
+		    <button type="button" class="close" data-dismiss="alert">×</button>
+  		    <strong>{{ message }}</strong>
+		</div>
+        {% endfor %}
+	</div>
+</div>
+<div class="col-sm-3 hidden-xs">
+</div>
+{% endblock %}

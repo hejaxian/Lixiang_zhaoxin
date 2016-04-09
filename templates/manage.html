@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}管理面板{% endblock %}
+
+{% block page_content %}
+<div class="jumbotron" style="background-color: #CC99CC;">
+	<table class="table">
+		<thead>
+       		<tr class="danger">
+        		<th>姓名</th>
+        		<th>性别</th>
+        		<th>班级</th>
+        		<th>学校</th>
+        		<th>应聘板块</th>
+        		<th>备选板块</th>
+        		<th></th>
+       		</tr>
+   		</thead> 
+   		<tbody>
+   		{% for baoming in g.baoming %}
+   			<tr>
+   				<td>{{baoming.name}}</td>
+   				<td>{{baoming.sex}}</td>
+   				<td>{{baoming.banji}}</td>
+   				<td>{{baoming.school}}</td>
+   				<td>{{baoming.block}}</td>
+   				<td>{{baoming.block_backup}}</td>
+   				<td><a href="{{ url_for('detail',id = baoming.id ) }}" class="btn btn-sm btn-info">查看详情</a></td>
+   			</tr>
+   		{% endfor %}
+   		</tbody>
+    </table>
+</div>
+{% endblock %}
